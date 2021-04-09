@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Switch</title>
+  </head>
+  <body>
+    <span>
+      <label>
+        <input type="checkbox" />
+        <svg viewBox="0 0 16 9">
+          <circle cx="4.7" cy="4.5" r="4" />
+        </svg>
+      </label>
+    </span>
+  </body>
+
+  <style>
+    span {
+      display: inline-block;
+      width: 5rem;
+      height: 5rem;
+    }
+
+    label {
+      cursor: pointer;
+    }
+
+    input {
+      display: none;
+    }
+
+    circle {
+      fill: gray;
+      transition: transform 0.2s ease-in-out, fill 0.2s ease-in-out;
+      filter: drop-shadow(0.01rem 0.01rem 0.01rem rgba(0, 0, 0, 0.5));
+    }
+
+    svg {
+      border: 2px solid black;
+      border-radius: 100vh;
+      border-color: gray;
+      transition: border-color 0.2s ease-in-out;
+    }
+
+    input:checked + svg {
+      border-color: black;
+    }
+
+    input:checked + svg circle {
+      fill: black;
+      transform: translate(41%);
+    }
+  </style>
+</html>
