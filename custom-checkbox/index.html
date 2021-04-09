@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Checkbox</title>
+  </head>
+  <body>
+    <span class="checkbox-container">
+      <label>
+        <input type="checkbox" />
+        <svg viewBox="0 0 116 116" fill="none">
+          <path
+            class="box"
+            pathLength="100"
+            d="M3 103V13C3 7.47715 7.47715 3 13 3H102.5C108.023 3 112.5 7.47715 112.5 13V103C112.5 108.523 108.023 113 102.5 113H13C7.47715 113 3 108.523 3 103Z"
+          />
+          <path
+            class="check"
+            pathLength="100"
+            d="M28 56L46.7203 79.5L88.2203 36"
+          />
+        </svg>
+      </label>
+    </span>
+  </body>
+
+  <style>
+    .checkbox-container {
+      width: 3rem;
+      height: 3rem;
+      display: inline-block;
+    }
+
+    input {
+      display: none;
+    }
+
+    .check,
+    .box {
+      stroke: black;
+      stroke-width: 8;
+      transition: stroke-dashoffset 0.2s linear;
+    }
+
+    .check {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dashoffset: 100;
+      stroke-dasharray: 100;
+    }
+
+    .box {
+      fill: none;
+      stroke-dashoffset: 0;
+      stroke-dasharray: 100;
+    }
+
+    label {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    input:checked + svg .box {
+      stroke-dashoffset: 100;
+    }
+
+    input:checked + svg .check {
+      stroke-dashoffset: 0;
+    }
+  </style>
+</html>
