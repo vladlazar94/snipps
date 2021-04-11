@@ -7,9 +7,8 @@
   </head>
   <body>
     <label>
-      <input type="text" placeholder="type your search in here" />
+      <input type="text" placeholder="type your search in here" required />
       <svg viewBox="0 0 100 100">
-        <circle class="wrapper" cx="50" cy="50" r="43" />
         <circle class="lens" cx="43" cy="43" r="20" />
         <line class="handle" x1="58" y1="58" x2="75" y2="75" />
       </svg>
@@ -28,19 +27,11 @@
       display: inline-block;
     }
 
-    .lens,
-    .handle {
+    circle,
+    line {
       stroke: black;
       stroke-width: 6;
-    }
-
-    .lens,
-    .wrapper {
-      fill: transparent;
-    }
-
-    .handle {
-      stroke-linecap: round;
+      fill: none;
     }
 
     svg {
@@ -53,47 +44,41 @@
       width: height;
     }
 
-    input {
-      font-size: 1.2rem;
-      height: 3rem;
-      width: 3rem;
-      margin: 0;
-      border-radius: 100vh;
-      color: transparent;
-      border: 2px solid black;
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-      transition: width 0.3s ease-out;
-    }
-
     input::placeholder {
       color: transparent;
-    }
-
-    input:hover,
-    input:focus {
-      padding-left: 1rem;
-      padding-right: 3rem;
-      width: 15rem;
-      outline: none;
-      color: initial;
-      transition: width 0.3s cubic-bezier(0.18, 0.89, 0.34, 1.1);
-    }
-
-    input:hover + svg .wrapper,
-    input:focus + svg .wrapper {
-      fill: black;
+      transition: color 0.2s ease-in-out;
+      transition-delay: 0;
     }
 
     input:hover::placeholder,
     input:focus::placeholder {
-      color: rgba(0, 0, 0, 0.2);
+      color: rgba(0, 0, 0, 0.3);
+      transition-delay: 0.1s;
     }
 
-    input:focus + svg .lens,
-    input:hover + svg .lens,
-    input:focus + svg .handle,
-    input:hover + svg .handle {
-      stroke: white;
+    input {
+      font-size: 1em;
+      height: 3em;
+      width: 3em;
+      margin: 0;
+      border-radius: 100vh;
+      color: transparent;
+      border: 0.15em solid black;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      transition: width, padding;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-in;
+    }
+
+    input:valid,
+    input:hover,
+    input:focus {
+      padding-left: 1em;
+      padding-right: 3em;
+      width: 15em;
+      outline: none;
+      color: initial;
+      transition-timing-function: cubic-bezier(0.18, 0.89, 0.34, 1.1);
     }
   </style>
 </html>
