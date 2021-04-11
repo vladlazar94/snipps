@@ -6,24 +6,25 @@
     <title>Switch</title>
   </head>
   <body>
-    <span>
-      <label>
-        <input type="checkbox" />
-        <svg viewBox="0 0 16 9">
-          <circle cx="4.7" cy="4.5" r="4" />
-        </svg>
-      </label>
-    </span>
+    <label>
+      <input type="checkbox" />
+      <svg viewBox="0 0 16 9">
+        <circle cx="4.5" cy="4.5" r="4" />
+      </svg>
+    </label>
   </body>
 
   <style>
-    span {
-      display: inline-block;
-      width: 5rem;
-      height: 5rem;
+    body {
+      display: grid;
+      place-content: center;
+      margin-top: 5rem;
     }
 
     label {
+      display: inline-block;
+      width: 5rem;
+      height: 5rem;
       cursor: pointer;
     }
 
@@ -32,25 +33,24 @@
     }
 
     circle {
-      fill: gray;
-      transition: transform 0.2s ease-in-out, fill 0.2s ease-in-out;
-      filter: drop-shadow(0.01rem 0.01rem 0.01rem rgba(0, 0, 0, 0.5));
+      fill: rgba(0, 0, 0, 0);
+      stroke: rgba(0, 0, 0, 0.2);
+      stroke-width: 0.2;
+      transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.34, 1.13),
+        fill 0.3s cubic-bezier(0.39, 0.58, 0.57, 1),
+        stroke 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
     }
 
     svg {
       border: 2px solid black;
       border-radius: 100vh;
-      border-color: gray;
-      transition: border-color 0.2s ease-in-out;
-    }
-
-    input:checked + svg {
-      border-color: black;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     }
 
     input:checked + svg circle {
       fill: black;
-      transform: translate(41%);
+      stroke: black;
+      transform: translate(43%);
     }
   </style>
 </html>
