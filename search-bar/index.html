@@ -62,23 +62,37 @@
       color: transparent;
       border: 2px solid black;
       box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-      transition: width 0.3s cubic-bezier(0.18, 0.89, 0.34, 1.1);
+      transition: width 0.3s ease-out;
     }
 
+    input::placeholder {
+      color: transparent;
+    }
+
+    input:hover,
     input:focus {
       padding-left: 1rem;
       padding-right: 3rem;
       width: 15rem;
       outline: none;
       color: initial;
+      transition: width 0.3s cubic-bezier(0.18, 0.89, 0.34, 1.1);
     }
 
+    input:hover + svg .wrapper,
     input:focus + svg .wrapper {
       fill: black;
     }
 
+    input:hover::placeholder,
+    input:focus::placeholder {
+      color: rgba(0, 0, 0, 0.2);
+    }
+
     input:focus + svg .lens,
-    input:focus + svg .handle {
+    input:hover + svg .lens,
+    input:focus + svg .handle,
+    input:hover + svg .handle {
       stroke: white;
     }
   </style>
