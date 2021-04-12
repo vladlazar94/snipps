@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Button Effects</title>
+  </head>
+  <body>
+    <button class="one">Button One</button>
+    <button class="two">Button Two</button>
+    <button class="three">Button Three</button>
+  </body>
+  <style>
+    body {
+      display: grid;
+      place-content: center;
+      margin-top: 10rem;
+    }
+
+    button + button {
+      margin-top: 2rem;
+    }
+
+    button {
+      position: relative;
+      z-index: 1;
+      font-size: 1em;
+      padding: 1em;
+      border: none;
+      color: white;
+      background-color: tomato;
+      cursor: pointer;
+      border-radius: 0.5rem;
+      box-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.2);
+    }
+
+    .one::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.05);
+      z-index: -1;
+      border-radius: 0.5rem;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.15s ease-out;
+    }
+
+    .one:hover::after,
+    .one:focus::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  </style>
+</html>
