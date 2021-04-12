@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="?">A link to a web page</div>
+    <a href="?">A link to another web page</div>
+    <a href="?">A third link to a web page</div>
+
+  </body>
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      place-content: center;
+      margin-top: 10rem;
+    }
+
+    a {
+        font-size: 1.5rem;
+        position: relative;
+        text-decoration: none;
+        color: darkorange;
+    }
+
+    a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 0.1em;
+      width: 100%;
+      background-color: currentColor;
+      transform: scaleX(0);
+      transition: transform 0.2s ease-out;
+      transform-origin: right;
+    }
+
+    a:focus {
+        outline: none;
+    }
+
+    a:focus::after, a:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+  </style>
+</html>
