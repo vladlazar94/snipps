@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Grid Example</title>
+  </head>
+  <body>
+    <nav>Navbar</nav>
+    <main>Main</main>
+    <aside>Sidebar</aside>
+    <div class="content-one">Content One</div>
+    <div class="content-two">Content Two</div>
+    <div class="content-three">Content Three</div>
+    <footer>Footer</footer>
+  </body>
+
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      font-size: 1.5rem;
+      height: 100vh;
+      display: grid;
+      gap: 0.2rem;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 0.2fr 1.5fr 1.2fr 0.8fr;
+      grid-template-areas:
+        "nav nav nav nav"
+        "sidebar main main main"
+        "sidebar content-one content-two content-three"
+        "sidebar footer footer footer";
+    }
+
+    body > * {
+      border-radius: 0.2em;
+      color: white;
+      text-align: center;
+      padding: 0.2em;
+    }
+
+    nav {
+      grid-area: nav;
+      background-color: chocolate;
+    }
+
+    main {
+      grid-area: main;
+      background-color: coral;
+    }
+
+    aside {
+      grid-area: sidebar;
+      background-color: darkgoldenrod;
+    }
+
+    .content-one {
+      grid-area: content-one;
+      background-color: burlywood;
+    }
+
+    .content-two {
+      grid-area: content-two;
+      background-color: cornflowerblue;
+    }
+
+    .content-three {
+      grid-area: content-three;
+      background-color: darkgray;
+    }
+
+    footer {
+      grid-area: footer;
+      background-color: darksalmon;
+    }
+
+    @media only screen and (max-width: 1000px) {
+      html {
+        font-size: 0.8rem;
+      }
+
+      body {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.4fr 0.4fr 3.2fr 1.2fr 1.2fr 1.2fr 1fr;
+        grid-template-areas:
+          "nav"
+          "sidebar"
+          "main"
+          "content-one"
+          "content-two"
+          "content-three"
+          "footer";
+      }
+    }
+  </style>
+</html>
